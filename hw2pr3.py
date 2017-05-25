@@ -59,7 +59,7 @@ def linreg(X, y, reg=0.0):
 			1) use np.eye to create identity matrix
 			2) use np.linalg.solve to solve for W_opt
 	"""
-	# TODO: solve for W_opt
+	
 	"*** YOUR CODE HERE ***"
 	im = np.eye(X.shape[1])
 	im[0,0]=0
@@ -90,7 +90,7 @@ def find_RMSE(W, X, y):
 
 		This function calculates and returns the root mean-squared error, RMSE
 	"""
-	# TODO: Solve for the root mean-squared error, RMSE
+
 	"*** YOUR CODE HERE ***"
 	y_pred= predict(W,X)
 	RMSE = (np.linalg.norm(y-y_pred))/(np.sqrt(X.shape[0]))
@@ -116,7 +116,7 @@ def RMSE_vs_lambda(X_train, y_train, X_val, y_val):
 			   parameters generated above
 			3) Generate, RMSE_list, a list of RMSE according to reg_list
 	"""
-	# TODO: Generate a list of RMSE, RESE_list
+
 	RMSE_list = []
 	reg_list = []
 	W_list = []
@@ -143,7 +143,7 @@ def RMSE_vs_lambda(X_train, y_train, X_val, y_val):
 	plt.close()
 	print('==> Plotting completed.')
 
-	# TODO: Find reg_opt, the regularization value that minimizes RMSE
+
 	"*** YOUR CODE HERE ***"
 	RMSE_opt = np.amin(RMSE_list)
 	i = RMSE_list.index(RMSE_opt)
@@ -170,7 +170,7 @@ def norm_vs_lambda(X_train, y_train, X_val, y_val):
 			2) Then generate norm_list, a list of norm by calculating the
 			   norm of each weight
 	"""
-	# TODO: Generate a list of norm, norm_list
+
 	reg_list = []
 	W_list = []
 	norm_list = []
@@ -216,7 +216,7 @@ def linreg_no_bias(X, y, reg=0.0):
 	t_start = time.time()
 
 	# Find the numerical solution in part d
-	# TODO: Solve for W_opt, and b_opt
+
 	"*** YOUR CODE HERE ***"
 	m=X.shape[0]
 	n=X.shape[1]
@@ -264,7 +264,7 @@ def grad_descent(X_train, y_train, X_val, y_val, reg=0.0, lr_W=2.5e-12, \
 	m_train, n = X_train.shape
 	m_val = X_val.shape[0]
 
-	# TODO: initialize the weights and bias and their corresponding gradients
+
 
 	# Please use the variable names: W (weights), W_grad (gradients of W),
 	# b (bias), b_grad (gradients of b)
@@ -279,7 +279,6 @@ def grad_descent(X_train, y_train, X_val, y_val, reg=0.0, lr_W=2.5e-12, \
 
 	print('==> Running gradient descent...')
 
-	# TODO: run gradient descent algorithm
 
 	# HINT: Run the gradient descent algorithm followed steps below
 	#	1) Calculate the training RMSE and validation RMSE at each iteration,
@@ -392,7 +391,6 @@ if __name__ == '__main__':
 	y_test = np.log(df[df.type == 'test'].shares).reshape((-1, 1))
 
 
-	# TODO: Stack a column of ones to the feature data, X_train, X_val and X_test
 
 	# HINT:
 	# 	1) Use np.ones / np.ones_like to create a column of ones

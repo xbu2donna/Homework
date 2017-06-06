@@ -60,7 +60,7 @@ def NLL(X, y, W, reg=0.0):
 
         NOTE: Please use the variable given, NLL.
     """
-    # TODO: Find the negative log likelihood for softmax regression
+
     "*** YOUR CODE HERE ***"
     mu = np.exp(X@W)
     u = mu/ mu.sum(axis=1).reshape(-1,1)
@@ -88,7 +88,7 @@ def grad_softmax(X, y, W, reg=0.0):
 
         NOTE: Please use the variable given for the gradient, grad.
     """
-    # TODO: Find the gradient of softmax regression with respect to W
+
     "*** YOUR CODE HERE ***"
     mu = np.exp(X@W)
     u = mu/ mu.sum(axis=1).reshape(-1,1)
@@ -113,8 +113,7 @@ def predict(X, W):
 
         NOTE: Please use the variable given, y_pred.
     """
-    # TODO: Obtain the array of predicted label y_pred using X, and
-    # Weight given
+
     "*** YOUR CODE HERE ***"
     u = np.exp(X@W)/(np.exp(X@W)).sum(axis=1).reshape(-1,1)
     y_pred = np.argmax(u,axis=1).reshape(-1,1)
@@ -168,7 +167,7 @@ def grad_descent(X, y, reg=0.0, lr=1e-5, eps=1e-6, max_iter=500, print_freq=20):
     iter_num = 0
     t_start = time.time()
 
-    # TODO: run gradient descent algorithms
+
 
     # HINT: Run the gradient descent algorithm followed steps below
     #   1) Calculate the negative log likelihood at each iteration use function
@@ -236,7 +235,6 @@ def accuracy_vs_lambda(X_train, y_train_OH, X_test, y_test, lambda_list):
     # initialize the list of accuracy
     accu_list = []
 
-    # TODO: Find corresponding accuracy values for each parameter
 
     for reg in lambda_list:
 
@@ -262,7 +260,6 @@ def accuracy_vs_lambda(X_train, y_train_OH, X_test, y_test, lambda_list):
     print('==> Plotting completed.')
 
 
-    # TODO: Find the optimal lambda that maximizes the accuracy
     # NOTE: use the variable given, reg_opt
     "*** YOUR CODE HERE ***"
     a_max = np.amax(accu_list)

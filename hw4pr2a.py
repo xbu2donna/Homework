@@ -70,7 +70,7 @@ def grad_logreg(X, y, W, reg=0.0):
 
 		NOTE: Please use the variable given for the gradient, grad.
 	"""
-	# TODO: Find the gradient of logistic regression with respect to W
+
 	"*** YOUR CODE HERE ***"
 	u= sigmoid (X@W)
 	grad = X.T@(u-y) + reg*W
@@ -99,7 +99,7 @@ def NLL(X, y, W, reg=0.0):
 
 		NOTE: please use the variable given for the final returned result, nll.
 	"""
-	# TODO: Find the negative log likelihood of logistic regression
+
 	"*** YOUR CODE HERE ***"
 	u = sigmoid(X@W)
 	nll = -( y*np.log(u)  + ( (1. -y) * np.log(1. -u) )).sum()+(reg*np.linalg.norm(W)**2/2)
@@ -137,7 +137,6 @@ def grad_descent(X, y, reg=0.0, lr=1e-4, eps=1e-6, max_iter=500, print_freq=20):
 	t_start = time.time()
 
 
-	# TODO: run gradient descent algorithms
 
 	# HINT: Run the gradient descent algorithm followed steps below
 	#   1) Calculate the negative log likelihood at each iteration and
@@ -204,7 +203,7 @@ def newton_step(X, y, W, reg=0.0):
 
 		NOTE: Please use the variable given for final returned result, d.
 	"""
-	# TODO: Find the change of the weight according Newton's methods
+
 	"*** YOUR CODE HERE ***"
 	n = X.shape[1]
 	u = sigmoid (X@W)
@@ -244,7 +243,7 @@ def newton_method(X, y, reg=0.0, eps=1e-6, max_iter=20, print_freq=5):
 	iter_num = 0
 	t_start = time.time()
 
-	# TODO: run gradient descent algorithms
+
 
 	# HINT: Run the gradient descent algorithm followed steps below
 	#   1) Calculate the negative log likelihood at each iteration and
@@ -323,7 +322,7 @@ def get_description(X, y, W):
 
 		NOTE: Please use the variable given for final returned results.
 	"""
-	# TODO: Find the accuracy, precision, recall, and f-1 score of the prediction
+
 	"*** YOUR CODE HERE ***"
 	m = len(y)
 	count_a = 0
@@ -373,8 +372,7 @@ def plot_description(X_train, y_train, X_test, y_test):
 	r_list = []
 	f1_list = []
 
-	# TODO: Find the list of accuracy, precision, recall, and f-1 score of the
-	# prediction given a list of different lambda
+
 
 	# HINT:
 	#   1) First, generate/create a list of different lambda
@@ -425,7 +423,6 @@ def plot_description(X_train, y_train, X_test, y_test):
 	print('==> Plotting completed.')
 
 
-	# TODO: Find the lambda, reg_opt, that maximizes accuracy
 	"*** YOUR CODE HERE ***"
 	a_max = np.amax(a_list)
 	i = a_list.index(a_max)

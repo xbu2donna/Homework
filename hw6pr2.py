@@ -33,13 +33,6 @@ if __name__ == '__main__':
 	print('==> Loading image data...')
 	img = ndimage.imread(urllib.request.urlopen('http://i.imgur.com/X017qGH.jpg'), flatten=True)
 
-	# TODO: Shuffle the image
-
-	# HINT:
-		# 1) Use np.random.shuffle(img) to shuffle an image img
-		# 2) np.random.shuffle() only shuffle along the major axis (row).
-		# 	Be sure to flatten the image with img.flatten() before doing the shuffling
-
 	"*** YOUR CODE HERE ***"
 	shuffle_img = img.copy().flatten()
 	np.random.shuffle(shuffle_img)
@@ -50,13 +43,6 @@ if __name__ == '__main__':
 	# =============STEP 1: RUNNING SVD ON IMAGES=================
 	print('==> Running SVD on images...')
 
-	# TODO: SVD on img and shuffle_img
-
-	# HINT:
-	# 		1) Use np.linalg.svd() to perform singular value decomposition
-	# 		2) For the naming of variables, decompose img into U, S, V
-	# 		3) Decompose shuffle_img into U_s, S_s, V_s
-
 	"*** YOUR CODE HERE ***"
 	U, S ,V = np.linalg.svd(img)
 	U_s, S_s, V_s = np.linalg.svd(shuffle_img)
@@ -66,11 +52,7 @@ if __name__ == '__main__':
 	print('==> Singular value dropoff plot...')
 	k = 100
 	plt.style.use('ggplot')
-	# TODO: Generate singular value dropoff plot
-
-	# NOTE:
-	# 		1) Make sure to generate lines with different colors or markers
-
+	
 	"*** YOUR CODE HERE ***"
 	orig_S_plot, = plt.plot(S[:k])
 	shuf_S_plot, = plt.plot(S_s[:k])
@@ -91,11 +73,7 @@ if __name__ == '__main__':
 	plt.axis('off')
 	plt.title('Original Image')
 
-	# TODO: Generate reconstruction images for each of the rank values
-
-	# HINT:
-	# 		1) Use plt.imshow() to display images
-	# 		2) Set cmap='Greys_r' in imshow() to display grey scale images
+	
 
 	for index in range(len(rank_list)):
 		k = rank_list[index]

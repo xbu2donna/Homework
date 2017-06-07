@@ -54,22 +54,14 @@ if __name__ == '__main__':
 	plt.plot(X, y, 'ro')
 
 
-	# TODO: replace the m_opt and b_opt with the solution you obtained from
-	# 		part (a), note that y = mx + b
+	
 	"*** YOUR CODE HERE ***"
 	m_opt = 62/35
 	b_opt = 18/35
 	"*** END YOUR CODE HERE ***"
 
 
-	# TODO: generate 100 points along the line of optimal linear fit.
 
-	# HINT:
-	#	1) Use np.linspace to get the x-coordinate of 100 points
-	#	2) Calculate the y-coordinate of those 100 points with the m_opt and
-	#	   b_opt, remember y = mx+b.
-	#	3) Use a.reshape(-1,1), where a is a np.array, to reshape the array
-	#	   to appropraite shape for generating plot
 
 	X_space = []
 	y_space = []
@@ -95,36 +87,19 @@ if __name__ == '__main__':
 	# variables to start with
 	mu, sigma, sampleSize = 0, 1, 100
 
-	# TODO: Generate white Gaussian noise
-	# HINT: Use np.random.normal to generate noise
-
 	noise = []
 	"*** YOUR CODE HERE ***"
 	noise=np.random.normal(mu,sigma,sampleSize).reshape(-1,1)
 
 	"*** END YOUR CODE HERE ***"
 
-	# TODO: generate y-coordinate of the 100 points with noise
 
-	# HINT:
-	#	1) Use X_space created in the part (c) above as the x-coordinates
-	#	2) In this case, y = mx + b + noise
 
 	y_space_rand = np.zeros(len(X_space))
 	"*** YOUR CODE HERE ***"
 	y_space_rand=m_opt*X_space+b_opt+noise
 	"*** END YOUR CODE HERE ***"
 
-
-	# TODO: calculate the new parameters for optimal linear fit using the
-	#		100 new points generated above
-
-	# HINT:
-	#	1) Use np.ones_like to create a column of 1
-	#	2) Use np.hstack to stack column of ones on X_space to create
-	#	   X_space_stacked
-	#	3) Use np.linalg.solve to solve W_opt following the normal equation:
-	#	   X.T * X * W_opt = X.T * y
 
 
 	X_space_stacked = X_space	# need to be replaced following hint 1 and 2
@@ -139,13 +114,6 @@ if __name__ == '__main__':
 	# get the new m, and new b from W_opt obtained above
 	b_rand_opt, m_rand_opt = W_opt.item(0), W_opt.item(1)
 
-	# TODO: Generate the y-coordinate of 100 points with the new parameters
-	#		obtained
-
-	# HINT:
-	#	1) Use X_space for x-coordinates (same)
-	#	2) y = mx + b
-	#	3) Make sure the array is in appropraite shape using a.reshape(-1,1)
 
 	y_pred_rand = []
 	"*** YOUR CODE HERE ***"

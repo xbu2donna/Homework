@@ -49,7 +49,6 @@ def find_cost(X, y, W , reg):
 		This function calculates and returns the l1 regularized
 		mean-squared error
 	"""
-	# TODO: Solve for l1-regularized mse
 	"*** YOUR CODE HERE ***"
 	lineareg = float((X@W -y).T @(X@W -y))
 	cost = (lineareg + reg*np.absolute(W).sum())/ y.shape[0]
@@ -65,7 +64,6 @@ def find_grad(X, y, W, reg=0.0):
 
 		This function calculates and returns the gradient of W
 	"""
-	# TODO: Find the gradient of lasso with respect to W
 	"*** YOUR CODE HERE ***"
 	grad= (X.T@X@W -X.T@y)/y.shape[0]
 	"*** END YOUR CODE HERE ***"
@@ -83,7 +81,6 @@ def prox(X, gamma):
 			1) Use X > gamma to find the index of entries in X
 				that are greater than gamma
 	"""
-	# TODO: Threshold each entry of X with respect to gamma
 	"""*** YOUR CODE HERE ***"""
 	X[np.abs(X)<=gamma]=0
 	X[X>gamma]=X[X>gamma]-gamma 
@@ -117,7 +114,6 @@ def grad_lasso(
 	iter_num = 0
 	t_start = time.time()
 
-	# TODO: Run gradient descent
 
 	# HINT:
 		# 1) Randomly select indices for entries into a batch using
@@ -168,7 +164,6 @@ def lasso_path(X, y, tau_min=1e-8, tau_max=10, num_reg=10):
 		reg = 1. / tau_list[index]
 		print('--regularization parameter is {:.4E}'.format(reg))
 
-		# TODO: Threshold each entry of X with respect to gamma
 
 		# HINT:
 		# 	1) Update each column of W to be the optimal weights at
@@ -232,7 +227,6 @@ if __name__ == '__main__':
 
 	# =============STEP 3: FEATURE SELECTION=================
 	print('==> Step 3: The most important features are: ')
-	# TODO: Find the indices for the top five features
 
 	# HINT:
 		# 1) Use df.columns to access the feature names

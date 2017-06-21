@@ -61,7 +61,7 @@ def nmf_cost(X, W, H):
 	"""
 
 	cost = 0.
-	# TODO: Calculate the cost for nmf algorithm
+
 	"*** YOUR CODE HERE ***"
 	sparse = X.tocoo()
 	for i in range(len(sparse.data)):
@@ -91,8 +91,7 @@ def nmf(X, k=20, max_iter=100, print_freq=5):
 	t_start = time.time()
 	
 	for iter_num in range(max_iter):
-		# TODO: Update H and W according to the algorithm
-		# Calculate cost and append to the list
+
 		"*** YOUR CODE HERE ***"
 		H = H * (W.T @ X) / ((W.T @ W) @ H)
 		W = W * (X @ H.T) / (W @ (H @ H.T))
@@ -151,7 +150,7 @@ if __name__ == '__main__':
 				2) Use np.flip to flip the order of an array
 				3) ind should have the shape of k x num_top_words
 	'''
-	# TODO: Find the index of the most frequent words for each topic
+
 	"*** YOUR CODE HERE ***"
 	augsort = np.argsort(H,axis=1)
 	ind = np.flip(augsort,1)
